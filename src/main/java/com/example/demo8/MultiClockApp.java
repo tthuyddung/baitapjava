@@ -15,8 +15,8 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class MultiClockApp extends Application {
-    private int currentClockIndex = 0; // Chỉ số của đồng hồ hiện tại
-    private ClockApp[] clockApps; // Mảng chứa các đồng hồ
+    private int currentClockIndex = 0;
+    private ClockApp[] clockApps;
 
     public static void main(String[] args) {
         launch(args);
@@ -24,33 +24,28 @@ public class MultiClockApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Tạo mảng chứa các đồng hồ
         clockApps = new ClockApp[10];
         for (int i = 0; i < clockApps.length; i++) {
             clockApps[i] = new ClockApp();
         }
 
-        // Bắt đầu đồng hồ đầu tiên
         clockApps[currentClockIndex].start(primaryStage);
     }
 
     private void switchToNextClock(Stage primaryStage) {
-        // Tăng chỉ số của đồng hồ hiện tại
         currentClockIndex = (currentClockIndex + 6) % clockApps.length;
 
-        // Bắt đầu đồng hồ mới
         clockApps[currentClockIndex].start(primaryStage);
     }
 
     private class ClockApp {
-        private TextField textField; // TextField để nhập giờ
-        private Label label; // Label để hiển thị giờ
+        private TextField textField;
+        private Label label;
 
         public ClockApp() {
-            // Tạo textField để nhập giờ
             textField = new TextField();
 
-            // Tạo label để hiển thị giờ
+
             label = new Label();
         }
 
