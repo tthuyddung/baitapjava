@@ -50,7 +50,7 @@ public class MultiClockApp extends Application {
         }
 
         public void start(Stage primaryStage) {
-            // Tạo nút button để chuyển đến đồng hồ tiếp theo
+
             Button nextButton = new Button("Open");
             nextButton.setOnAction(event -> switchToNextClock(primaryStage));
 
